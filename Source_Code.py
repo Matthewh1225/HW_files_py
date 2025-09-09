@@ -1,0 +1,84 @@
+file_1 = "file1.txt" # reversed names
+file_2 = "file2.txt" # restored names
+
+def Assignment(): 
+    #---PART_1--- reads file char by char & prints reversed to console
+    read_file_byChar()
+
+    #---PART 2.a--- Gets names from user and prints reversed name after each name is entered into console.
+    original_names = get_names()
+    with open(file_1, "w") as file1:
+        for n in original_names:
+            file1.write("".join(reversed(n)) + "\n")  
+    file1.close()    
+
+    #---PART 2.b--- Reads names from File_1 & writes restored names into file_2
+    restore_names = reverse_names(file_1)
+    with open(file_2, "w") as file2:
+        for name in restore_names:
+            file2.write(name + "\n")
+    file2.close()      
+
+    #---PART 2.c--- Read names from file_2, reverses, sorts & prints the names
+    names = reverse_names(file_2)
+    names.sort()
+    print("")
+    for name in names:
+        print("   ",name)
+
+def read_file_byChar(file_name = None):
+    #reads Oone char at a time and prints to console if no Params
+    if file_name is None:
+        File_to_Read = input("Enter the name of the file to read text from: ")
+        with open(File_to_Read,"r") as file_R:
+            while True:
+                    c = file_R.read(1)
+                    print(c,end="")  
+                    if not c:
+                        print("")
+                        break    
+        file_R.close()
+        print("")
+    # returns list of chars from file given in Param
+    if file_name is not None:
+        chars = []
+        with open(file_name,"r") as file:
+                for name in file:
+                    for char in name:
+                        chars.append(char)
+        file.close()  
+        return chars   
+
+# gets names from user input/Keyboard ,adds name to list & prints each name reversed
+def get_names():
+    names_list = []
+    getting = True
+    while (getting): 
+        name = input("Enter a name or click (E) to exit!").strip()
+        if name.lower() == "e":
+            getting = False
+        else:
+            print("".join(reversed(name)))
+            names_list.append(name)       
+    return names_list
+
+# uses stack to reverse each name in file
+def reverse_names(file_name):
+    char_list = read_file_byChar(file_name)
+    names = []
+    name = ""
+    for char in char_list:
+        if char == '\n': 
+            if name:
+                stack = list(name)
+                reverse = ""
+                while stack:
+                    reverse += stack.pop()
+                names.append(reverse)
+                name = "" 
+        else:
+            name += char
+    return names
+
+if __name__=="__main__":
+    Assignment()
