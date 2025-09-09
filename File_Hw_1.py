@@ -1,6 +1,7 @@
 file_0 = "file0.txt" # original names
 file_1 = "file1.txt" # reversed names
 file_2 = "file2.txt" # re-reversed names
+#1234456
 
 #read files 1 char at a time and print
 def read_file_byChar():
