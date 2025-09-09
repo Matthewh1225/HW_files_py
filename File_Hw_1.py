@@ -85,6 +85,12 @@ def write_reverse_sort_names():
     for name in names:
         print("   ",name)
 
-
-read_file_byChar()
-write_reverse_sort_names()
+# read_file_byChar()
+# Write_names()
+write_reverse_names()
+write_re_reverse()
+reverse_sort()
+#question 3 = 21??
+# 25000*256 = 6,400,000
+# 512*50*12 = 307,200
+# 6,400,000/307,200=20.8->21
