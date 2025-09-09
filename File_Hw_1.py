@@ -1,7 +1,6 @@
 file_0 = "file0.txt" # original names
 file_1 = "file1.txt" # reversed names
 file_2 = "file2.txt" # re-reversed names
-#1234456
 
 #read files 1 char at a time and print
 def read_file_byChar():
@@ -94,6 +93,10 @@ def reverse_sort():
 write_reverse_names()
 write_re_reverse()
 reverse_sort()
+
+
+
+
 #question 3 = 21??
 # 25000*256 = 6,400,000
 # 512*50*12 = 307,200
